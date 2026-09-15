@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* -----------------------------------------------------------
      2. Scroll-Reveal Animations (Intersection Observer)
   ----------------------------------------------------------- */
-  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+  const revealElements = document.querySelectorAll('.reveal-on-scroll, .timeline-milestone');
   if ('IntersectionObserver' in window && revealElements.length > 0) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {

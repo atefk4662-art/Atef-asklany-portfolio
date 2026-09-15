@@ -6,6 +6,24 @@
 
 const PROJECTS = [
   {
+    id: "yoc-travel",
+    title: "YOC (Your Only Chance) Youth Travel Platform",
+    category: "systems",
+    categoryLabel: "Graduation Project • Smart Travel Ecosystem",
+    description: "An AI-powered youth travel booking & exploration platform built for Egyptian tourism. Features AI Vibe trip planning, instant Stripe checkout in EGP/USD, custom itineraries, and community trip suggestions.",
+    coverImage: "assets/yoc_hero.jpg",
+    tools: ["Business Analysis", "System Design", "Stripe API", "AI Travel Planner", "Agile Management"],
+    metrics: [
+      { value: "Grade A", label: "Graduation Project" },
+      { value: "End-to-End", label: "Booking & Checkout" },
+      { value: "AI-Powered", label: "Vibe Planner" }
+    ],
+    featured: true,
+    status: "completed",
+    caseStudyUrl: "projects/yoc.html",
+    order: 1
+  },
+  {
     id: "shopeasy",
     title: "ShopEasy Marketing Analytics",
     category: "data",
@@ -21,25 +39,25 @@ const PROJECTS = [
     featured: true,
     status: "completed",
     caseStudyUrl: "projects/shopeasy.html",
-    order: 1
+    order: 2
   },
   {
     id: "triple-seven",
-    title: "Triple Seven Strategic System",
+    title: "Triple Seven PlayStation & Café POS",
     category: "systems",
     categoryLabel: "Systems & Software Architecture",
-    description: "Architected and deployed a multi-branch gaming lounge management platform. Features real-time P&L synchronization, shift-level financial audits, and zero-trust remote network tunneling.",
+    description: "Custom-built PlayStation gaming lounge and café management platform. Features real-time console session timers (Single/Multiplayer rates), integrated F&B ordering, and zero-shrinkage shift drawer audits.",
     coverImage: "assets/triple_seven_cover.jpg",
     tools: ["JavaScript", "PHP", "MySQL", "Tailscale", "System Architecture"],
     metrics: [
-      { value: "100%", label: "Custom Built" },
-      { value: "Live", label: "P&L Sync" },
+      { value: "Live", label: "Station Timers" },
+      { value: "Café POS", label: "F&B Billing" },
       { value: "Secured", label: "Tailnet VPN" }
     ],
     featured: true,
     status: "completed",
     caseStudyUrl: "projects/triple-seven.html",
-    order: 2
+    order: 3
   },
   {
     id: "foush",
@@ -57,7 +75,7 @@ const PROJECTS = [
     featured: true,
     status: "completed",
     caseStudyUrl: "projects/foush.html",
-    order: 3
+    order: 4
   },
   {
     id: "customer-behavior",
@@ -74,7 +92,7 @@ const PROJECTS = [
     featured: true,
     status: "completed",
     caseStudyUrl: "projects/customer-behavior.html",
-    order: 4
+    order: 5
   }
 ];
 
