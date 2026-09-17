@@ -2118,23 +2118,6 @@ body.dark-theme {
   transform: scale(1.03);
 }
 
-.spotlight-circular-badge {
-  position: absolute;
-  top: -18px;
-  right: -18px;
-  width: 125px;
-  height: 125px;
-  border-radius: 50%;
-  background: #0E1420;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-  z-index: 10;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* ----------------- Projects Gateway Banner (Homepage -> Catalog) ----------------- */
 .projects-gateway-banner {
   margin-top: 3rem;
@@ -3086,7 +3069,7 @@ body.dark-theme {
   .skills-grid { grid-template-columns: 1fr; }
   .journey-story-card { padding: 2rem 1.5rem; }
   .supporting-projects-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-  .hero-project-spotlight { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-project-spotlight { grid-template-columns: 1fr; gap: 2.25rem; padding: 2.25rem 2rem; }
 }
 
 @media (max-width: 768px) {
@@ -3108,6 +3091,20 @@ body.dark-theme {
   .nav-links.open { display: flex; }
   .kh-strip-card { width: 320px; }
   .kh-strip-media { height: 260px; }
+  
+  .projects-gateway-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.25rem 1.75rem;
+    gap: 1.5rem;
+  }
+  .pgb-action {
+    width: 100%;
+  }
+  .pgb-action .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 640px) {
@@ -3117,7 +3114,62 @@ body.dark-theme {
   .kh-hero-actions { flex-direction: column; }
   .contact-channels { flex-direction: column; }
   .supporting-projects-grid { grid-template-columns: 1fr; }
-  .hero-spotlight-content { padding: 1.75rem; }
+  
+  /* Hero Project Spotlight on Mobile */
+  .hero-project-spotlight {
+    padding: 1.5rem 1.25rem;
+    gap: 1.5rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 2.5rem;
+  }
+  .hero-spotlight-content {
+    padding: 0;
+  }
+  .spotlight-title {
+    font-size: 1.4rem;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+  .spotlight-desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+  .spotlight-metrics-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .spotlight-metric {
+    padding: 0.65rem 0.4rem;
+    text-align: center;
+    border-radius: var(--radius-sm);
+  }
+  .spotlight-metric .s-val {
+    font-size: 1.05rem;
+  }
+  .spotlight-metric .s-lbl {
+    font-size: 0.68rem;
+  }
+  .spotlight-tools {
+    gap: 0.35rem;
+    margin-bottom: 1.35rem;
+  }
+  .spotlight-actions-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .spotlight-actions-group .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 0.85rem 1.25rem;
+  }
+  .spotlight-image-frame {
+    aspect-ratio: 16/10;
+    border-radius: var(--radius-md);
+  }
   
   /* Circular Frame on Mobile */
   .kh-circular-frame-wrapper {
