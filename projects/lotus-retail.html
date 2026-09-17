@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lotus Retail Analytics & BI Dashboard | Atef Asklany</title>
+  <meta name="description" content="Lotus Retail Analytics Case Study by Atef Asklany. End-to-end retail business intelligence analyzing 45.35M EGP across 12,000 orders and 15 stores using Power BI, DAX, Power Query, and Star Schema modeling." />
+  
+  <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="dark-theme">
+
+  <!-- ================= TOP NAVIGATION BAR ================= -->
+  <header class="site-header" id="header">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-logo">
+        <span class="logo-name">Atef Asklany</span>
+        <span class="status-indicator">
+          <span class="status-dot"></span> Available for Projects
+        </span>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../projects.html" style="color: var(--accent-cyan-light);">Selected Work</a>
+        <a href="#problem">The Problem</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#process">Analytical Journey</a>
+        <a href="#cleaning">Data Cleaning</a>
+        <a href="#eda">EDA</a>
+        <a href="#model">Data Model</a>
+        <a href="#insights">Insights</a>
+        <a href="#recommendations">Recommendations</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="../index.html#contact" class="btn btn-sm btn-primary">Let's Talk</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="case-study-container">
+
+    <!-- ================= 01. CASE STUDY HERO ================= -->
+    <section class="cs-hero section-spacing" id="overview">
+      <div class="container">
+        
+        <!-- Breadcrumb & Badge -->
+        <div class="hero-top-meta">
+          <a href="../projects.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Projects
+          </a>
+          <span class="badge badge-primary">Retail Analytics • Business Intelligence • Star Schema</span>
+        </div>
+
+        <!-- Title & Subtitle -->
+        <h1 class="cs-title">Lotus Retail — End-to-End Sales Analytics & BI Dashboard</h1>
+        <p class="cs-subtitle">Transforming 12,000 retail transactions (45.35M EGP) across 15 Egyptian stores into actionable commercial intelligence, regional performance drivers, and return diagnostics.</p>
+
+        <!-- Executive Summary Bento Box -->
+        <div class="hero-summary-grid">
+          
+          <div class="summary-card main-summary">
+            <div class="summary-label">Executive Summary</div>
+            <p class="summary-text">
+              Lotus Retail, a nationwide retail chain operating 15 branches across Egypt, managed high transaction volumes but lacked unified visibility into <strong>store-level profitability</strong>, <strong>regional demand variations</strong>, and <strong>root causes behind product returns</strong>. Using <strong>Power Query</strong> for automated data cleaning, a robust <strong>Star-Schema Dimensional Model</strong> (4 Dimensions + 2 Fact tables), and an interactive <strong>4-View Power BI Dashboard</strong>, I engineered an executive business intelligence suite. The analysis evaluated <strong>45.35M EGP in gross revenue, 9.70M EGP in net profit (21.4% margin), a 92% customer repeat purchase rate</strong>, and diagnosed that 35%+ of returns stem directly from preventable sizing and quality defects.
+            </p>
+          </div>
+
+          <div class="summary-card meta-sidebar">
+            <div class="meta-row">
+              <span class="meta-label">Domain</span>
+              <span class="meta-val">Multi-Store Retail & Consumer E-Commerce</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Role</span>
+              <span class="meta-val">Data Analyst & BI Developer</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Stack</span>
+              <span class="meta-val">Power BI • DAX • Power Query (M) • Star Schema</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Core KPIs</span>
+              <span class="meta-val highlight-kpi">45.35M EGP Rev • 21.4% Margin • 12K Orders • 92% Repeat</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Project Asset Links & Actions -->
+        <div class="project-action-links" style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+          <a href="../assets/Lotus_Retail_Analytics_Dashboard.pbix" download class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Download Power BI Dashboard (.pbix)</span>
+          </a>
+          <a href="../assets/Lotus_Retail_Analytics_BI_Report.pdf" target="_blank" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <span>View Official Analytics Report (PDF)</span>
+          </a>
+        </div>
+
+        <!-- Hero Primary Visual Showcase -->
+        <div class="hero-visual-frame" style="background: #0B101A; border: 1px solid var(--border-medium); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-glow);">
+          <div class="window-header">
+            <div class="window-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="window-title">Power BI Executive Cockpit — Lotus Retail Commercial Overview</div>
+            <div class="window-tag">Live Project Output</div>
+          </div>
+          <div class="dashboard-render" style="padding: 0; background: #070B12; display: flex; justify-content: center; align-items: center;">
+            <img src="../assets/lotus_retail_overview.png" alt="Lotus Retail Executive Overview Power BI Dashboard" style="width: 100%; height: auto; display: block; object-fit: contain;" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 01. THE BUSINESS PROBLEM ================= -->
+    <section class="cs-challenge section-spacing" id="problem">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">01 / The Business Problem</span>
+          <h2 class="section-heading">High Transaction Volume, Low Strategic Clarity</h2>
+          <p class="section-sub">Why multi-store retail chains struggle to optimize margins without unified dimensional analytics.</p>
+        </div>
+
+        <div class="grid-3-col">
+          
+          <div class="glass-card">
+            <div class="card-icon alert-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 16s-1.5-2-4-2-4 2-4 2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+            </div>
+            <h3 class="card-h">Fragmented Store Visibility</h3>
+            <p class="card-p">
+              Lotus operated 15 stores across 7 Egyptian regions. Management had aggregated revenue figures but lacked store-level margin comparisons, obscuring locations where high operational overhead was eroding profitability.
+            </p>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon warning-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </div>
+            <h3 class="card-h">Unmonitored Return Leakage</h3>
+            <p class="card-p">
+              Product returns averaged 9% nationally but spiked to 10%+ in specific regional branches (Aswan, Sharm El Sheikh). The business had no systematic diagnostic to isolate whether returns were caused by discounts, shipping, sizing, or defects.
+            </p>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3 class="card-h">Unsegmented Customer Base</h3>
+            <p class="card-p">
+              Although repeat purchases were strong, customer loyalty tiers (Bronze to Platinum) were not connected to marketing campaigns. Promotional discounts were broadcast broadly rather than targeted at VIP retention.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 02. OBJECTIVES & TARGET KPIS ================= -->
+    <section class="cs-objectives section-spacing" id="objectives">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">02 / Strategic Objectives</span>
+          <h2 class="section-heading">Project Goals & Target KPI Framework</h2>
+          <p class="section-sub">Structuring actionable analytical pillars to guide multi-store operational decision-making.</p>
+        </div>
+
+        <div class="objectives-wrapper">
+          
+          <div class="objectives-grid">
+            
+            <div class="objective-box">
+              <div class="obj-number">01</div>
+              <h3 class="obj-title">Multi-Dimensional Profit Tracking</h3>
+              <ul class="obj-list">
+                <li>Consolidate 12,000 transaction records into unified financial metrics.</li>
+                <li>Calculate gross revenue, product costs, and true net profit margins.</li>
+                <li>Enable instant slicing across 15 stores, 7 regions, and 3 calendar years.</li>
+              </ul>
+            </div>
+
+            <div class="objective-box">
+              <div class="obj-number">02</div>
+              <h3 class="obj-title">Return Root-Cause Diagnosis</h3>
+              <ul class="obj-list">
+                <li>Evaluate correlation between promotional discount tiers and return rates.</li>
+                <li>Categorize return root causes (sizing, defects, wrong item, buyer change).</li>
+                <li>Benchmark store-level return performance to isolate operational gaps.</li>
+              </ul>
+            </div>
+
+            <div class="objective-box">
+              <div class="obj-number">03</div>
+              <h3 class="obj-title">Customer Segmentation & Loyalty</h3>
+              <ul class="obj-list">
+                <li>Identify high-value demographic cohorts (Age groups and regional demand).</li>
+                <li>Measure customer repeat purchase rates and loyalty tier migration.</li>
+                <li>Map payment gateway preferences (InstaPay, Vodafone Cash, Cards, Fawry).</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- KPI Metric Cards Strip -->
+          <div class="kpi-banner">
+            <div class="kpi-banner-item">
+              <span class="k-label">Total Revenue</span>
+              <span class="k-val">45.35M EGP</span>
+              <span class="k-desc">12,000 Transactions</span>
+            </div>
+            <div class="kpi-banner-item">
+              <span class="k-label">Net Profit</span>
+              <span class="k-val">9.70M EGP</span>
+              <span class="k-desc">21.40% Net Margin</span>
+            </div>
+            <div class="kpi-banner-item">
+              <span class="k-label">Average Order Value</span>
+              <span class="k-val">3,779 EGP</span>
+              <span class="k-desc">Consistent Basket Size</span>
+            </div>
+            <div class="kpi-banner-item">
+              <span class="k-label">Customer Retention</span>
+              <span class="k-val">92.0%</span>
+              <span class="k-desc">Repeat Purchase Rate</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 03. INTERACTIVE POWER BI DASHBOARD (PROMOTED AS SECTION 03) ================= -->
+    <section class="cs-ecosystem section-spacing" id="dashboard">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">03 / Executive Dashboard</span>
+          <h2 class="section-heading">Interactive Power BI Dashboard Suite</h2>
+          <p class="section-sub">Explore the 4 specialized dimensional views built for executive decision-makers.</p>
+        </div>
+
+        <!-- Dashboard View Switcher Tabs -->
+        <div class="ecosystem-tabs">
+          <button class="tab-btn active" data-tab="tab-overview">
+            <span class="tab-index">01</span>
+            <span class="tab-text">Executive Overview</span>
+          </button>
+          <button class="tab-btn" data-tab="tab-products">
+            <span class="tab-index">02</span>
+            <span class="tab-text">Sales & Products</span>
+          </button>
+          <button class="tab-btn" data-tab="tab-customers">
+            <span class="tab-index">03</span>
+            <span class="tab-text">Customers & Loyalty</span>
+          </button>
+          <button class="tab-btn" data-tab="tab-stores">
+            <span class="tab-index">04</span>
+            <span class="tab-text">Stores & Returns</span>
+          </button>
+        </div>
+
+        <!-- View 1: Executive Overview -->
+        <div class="tab-panel active" id="tab-overview">
+          <div class="eco-card-grid">
+            <div class="eco-screen-wrap">
+              <div class="mockup-header">
+                <span>View 1: Central Executive Sales Overview</span>
+                <span class="status-pill">Interactive BI</span>
+              </div>
+              <div class="mockup-content" style="padding: 0; background: #070B12;">
+                <img src="../assets/lotus_retail_overview.png" alt="Lotus Retail Executive Overview Dashboard" style="width: 100%; height: auto; display: block; object-fit: contain;" />
+              </div>
+            </div>
+            <div class="eco-info-wrap">
+              <h3 class="eco-title">Central Executive Performance Cockpit</h3>
+              <p class="eco-desc">
+                Serves as the primary executive command center, uniting high-level commercial indicators, regional volume hierarchies, and 52-week annual revenue trajectories into a single view.
+              </p>
+              <div class="eco-feature-list">
+                <div class="eco-item">
+                  <strong>Macro KPI Scorecards:</strong> Real-time tracking of 45.35M EGP Revenue, 9.70M EGP Profit, 21.4% Profit Margin, 12K Orders, 3.78K EGP AOV, and 9.0% Return Rate.
+                </div>
+                <div class="eco-item">
+                  <strong>52-Week Revenue Trajectory:</strong> Continuous trend line highlighting seasonal peaks in Q4 (surpassing 1.2M EGP/week) and steady baseline weekly performance.
+                </div>
+                <div class="eco-item">
+                  <strong>Regional Volume Ranking:</strong> Displays Greater Cairo (16.8M EGP), Alexandria (8.4M EGP), Nile Delta (7.5M EGP), and Canal Zone (6.5M EGP).
+                </div>
+                <div class="eco-item">
+                  <strong>Category Contribution:</strong> Visualizes the balanced revenue split between Clothing and Electronics.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View 2: Sales & Products -->
+        <div class="tab-panel" id="tab-products">
+          <div class="eco-card-grid">
+            <div class="eco-screen-wrap">
+              <div class="mockup-header">
+                <span>View 2: Product Performance & Discount Elasticity</span>
+                <span class="status-pill">Product Analytics</span>
+              </div>
+              <div class="mockup-content" style="padding: 0; background: #070B12;">
+                <img src="../assets/lotus_retail_sales_products.png" alt="Lotus Retail Sales & Products Dashboard" style="width: 100%; height: auto; display: block; object-fit: contain;" />
+              </div>
+            </div>
+            <div class="eco-info-wrap">
+              <h3 class="eco-title">Product Hierarchy & Payment Channels</h3>
+              <p class="eco-desc">
+                Provides granular product-level intelligence, testing whether promotional discounting increases merchandise return rates and mapping omnichannel payment adoption.
+              </p>
+              <div class="eco-feature-list">
+                <div class="eco-item">
+                  <strong>Product Type Revenue Ranking:</strong> Evaluates top-performing SKUs across Abayas, Laptops, Mobile Phones, and Tech Accessories.
+                </div>
+                <div class="eco-item">
+                  <strong>Discount vs Return Invariance:</strong> Proves that return rates hold steady at ~9% regardless of discount depth (No Discount through 21%+ High Discount).
+                </div>
+                <div class="eco-item">
+                  <strong>Subcategory Margin Matrix:</strong> Multi-column financial grid evaluating subcategory revenue and profit margin percentage.
+                </div>
+                <div class="eco-item">
+                  <strong>Payment Gateway Distribution:</strong> Donut breakdown showing balanced distribution across Cash (17.25%), InstaPay, Vodafone Cash, Credit/Debit, and Fawry.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View 3: Customers & Loyalty -->
+        <div class="tab-panel" id="tab-customers">
+          <div class="eco-card-grid">
+            <div class="eco-screen-wrap">
+              <div class="mockup-header">
+                <span>View 3: Demographic Cohorts & Customer Loyalty</span>
+                <span class="status-pill">Customer Intelligence</span>
+              </div>
+              <div class="mockup-content" style="padding: 0; background: #070B12;">
+                <img src="../assets/lotus_retail_customers.png" alt="Lotus Retail Customers & Loyalty Dashboard" style="width: 100%; height: auto; display: block; object-fit: contain;" />
+              </div>
+            </div>
+            <div class="eco-info-wrap">
+              <h3 class="eco-title">Demographic Segmentation & Loyalty Tiers</h3>
+              <p class="eco-desc">
+                Analyzes customer purchasing frequency, demographic age distributions, and loyalty tier migration to inform customer retention and VIP marketing programs.
+              </p>
+              <div class="eco-feature-list">
+                <div class="eco-item">
+                  <strong>92% Repeat Purchase Rate:</strong> Highlights an exceptionally strong customer loyalty baseline across the 12,000 order dataset.
+                </div>
+                <div class="eco-item">
+                  <strong>Age Group Purchasing Power:</strong> Shows that age brackets 45–54 (900+ customers) and 25–34 (870+ customers) represent the core revenue pillars.
+                </div>
+                <div class="eco-item">
+                  <strong>Loyalty Tier Pyramid:</strong> Benchmarks customer volume across Bronze (~1,500), Silver (~750), Gold (~400), and Platinum (~150).
+                </div>
+                <div class="eco-item">
+                  <strong>Top Customer Ledger:</strong> Identifies individual high-LTV VIP customers (e.g., Zeinab Mahmoud at 87.4K EGP, Zeinab Salem at 69.6K EGP).
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View 4: Stores & Returns -->
+        <div class="tab-panel" id="tab-stores">
+          <div class="eco-card-grid">
+            <div class="eco-screen-wrap">
+              <div class="mockup-header">
+                <span>View 4: Multi-Store Benchmarking & Return Diagnostics</span>
+                <span class="status-pill">Operational QA</span>
+              </div>
+              <div class="mockup-content" style="padding: 0; background: #070B12;">
+                <img src="../assets/lotus_retail_stores_returns.png" alt="Lotus Retail Stores & Returns Dashboard" style="width: 100%; height: auto; display: block; object-fit: contain;" />
+              </div>
+            </div>
+            <div class="eco-info-wrap">
+              <h3 class="eco-title">Branch Performance & Return Diagnostics</h3>
+              <p class="eco-desc">
+                Enables store-by-store benchmarking across 15 physical locations, tracking staff role contributions and breaking down the root causes of returned orders.
+              </p>
+              <div class="eco-feature-list">
+                <div class="eco-item">
+                  <strong>15-Store Revenue Benchmarking:</strong> Compares branch sales across Cairo Festival City, City Stars, Mall of Egypt, San Stefano, and regional outlets.
+                </div>
+                <div class="eco-item">
+                  <strong>Store Return Rate Disparity:</strong> Highlights highest return rates in tourist destinations (Aswan Plaza at 10.1%, Sharm Plaza at 10.0%, Luxor Mall at 9.8%) versus low return branches (Tanta Stars at 5.9%).
+                </div>
+                <div class="eco-item">
+                  <strong>Return Root Cause Breakdown:</strong> Isolates primary drivers: Sizing Issues (18.66%), Quality Issues (16.57%), Wrong Item Shipped (16.38%), and Defective Products.
+                </div>
+                <div class="eco-item">
+                  <strong>Staff Role Hierarchy:</strong> Tracks transaction volume and revenue handled by Cashiers, Sales Associates, and Department Managers.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 04. THE 5-STAGE ANALYTICAL JOURNEY ================= -->
+    <section class="cs-approach section-spacing" id="process">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">04 / The Analytical Journey</span>
+          <h2 class="section-heading">From Messy Operational Tables to Executive Intelligence</h2>
+          <p class="section-sub">A disciplined progression ensuring clean data, exploratory rigor, and dependable data modeling before visualization.</p>
+        </div>
+
+        <div class="journey-flow">
+          
+          <div class="journey-step">
+            <div class="step-badge">Stage 01</div>
+            <div class="step-card">
+              <div class="step-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              </div>
+              <h3 class="step-title">Power Query ETL</h3>
+              <p class="step-desc">
+                Cleaned raw operational tables: enforced schema data types, removed duplicate orders, normalized casing, and eliminated invalid test transactions.
+              </p>
+              <div class="step-metric">Power Query (M)</div>
+            </div>
+          </div>
+
+          <div class="journey-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+
+          <div class="journey-step">
+            <div class="step-badge">Stage 02</div>
+            <div class="step-card">
+              <div class="step-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </div>
+              <h3 class="step-title">Exploratory EDA</h3>
+              <p class="step-desc">
+                Formulated business hypotheses: analyzed geographic concentration, tested discount vs return elasticity, and investigated return drivers.
+              </p>
+              <div class="step-metric">Business Hypothesis Testing</div>
+            </div>
+          </div>
+
+          <div class="journey-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+
+          <div class="journey-step">
+            <div class="step-badge">Stage 03</div>
+            <div class="step-card">
+              <div class="step-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              </div>
+              <h3 class="step-title">Star Schema Modeling</h3>
+              <p class="step-desc">
+                Architected a dimensional model with 2 Fact Tables (`fact_sales`, `fact_orders`) and 4 Dimension Tables for optimal slicing performance.
+              </p>
+              <div class="step-metric">4 Dim + 2 Fact Star Schema</div>
+            </div>
+          </div>
+
+          <div class="journey-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+
+          <div class="journey-step">
+            <div class="step-badge">Stage 04</div>
+            <div class="step-card">
+              <div class="step-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+              </div>
+              <h3 class="step-title">Power BI Dashboard</h3>
+              <p class="step-desc">
+                Built an interactive 4-view reporting suite with DAX KPI calculations, dynamic regional slicers, customer demographic views, and return diagnostics.
+              </p>
+              <div class="step-metric">4 Interactive Views</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 05. DATA CLEANING & POWER QUERY ================= -->
+    <section class="cs-cleaning section-spacing" id="cleaning">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">05 / Data Preparation</span>
+          <h2 class="section-heading">Data Cleaning & Power Query Engineering</h2>
+          <p class="section-sub">Transforming raw, unformatted operational tables into trusted, production-ready relational data.</p>
+        </div>
+
+        <div class="audit-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+          
+          <div class="glass-card">
+            <h3 class="card-h" style="color: var(--accent-cyan-light); margin-bottom: 1rem;">The Challenge in Raw Data</h3>
+            <p class="card-p">
+              Raw retail operational data contained inconsistently formatted store names, unassigned column data types, duplicate transaction rows, and test entries that distorted revenue metrics. Analyzing this data directly would have led to inaccurate regional reporting and inflated order totals.
+            </p>
+          </div>
+
+          <div class="glass-card">
+            <h3 class="card-h" style="color: var(--accent-emerald); margin-bottom: 1rem;">The Applied Solution</h3>
+            <p class="card-p">
+              Applied a standardized Power Query (M) pipeline to enforce strict schema governance. All categorical fields were trimmed and normalized, dates were parsed into standard calendar formats, numerical monetary columns were typed as Fixed Decimals, and invalid records were systematically filtered.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Data Cleaning Steps Table -->
+        <div class="table-responsive" style="overflow-x: auto; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
+            <thead>
+              <tr style="border-bottom: 1px solid var(--border-medium); color: var(--text-primary);">
+                <th style="padding: 1rem; width: 25%;">Power Query Step</th>
+                <th style="padding: 1rem; width: 35%;">Action Performed</th>
+                <th style="padding: 1rem; width: 40%;">Business & Analytical Impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent-cyan);">Promoted Headers</td>
+                <td style="padding: 1rem; color: var(--text-secondary);">Converted raw file top rows into structured entity column headers.</td>
+                <td style="padding: 1rem; color: var(--text-muted);">Ensured unambiguous referencing across dimensions and facts.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent-cyan);">Changed Type</td>
+                <td style="padding: 1rem; color: var(--text-secondary);">Converted IDs to Text/Int, revenue to Decimal, and order dates to Date type.</td>
+                <td style="padding: 1rem; color: var(--text-muted);">Enables precise mathematical DAX calculations and Power BI time-intelligence.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent-cyan);">Text Normalization</td>
+                <td style="padding: 1rem; color: var(--text-secondary);">Trimmed whitespace, normalized casing across categories and store locations.</td>
+                <td style="padding: 1rem; color: var(--text-muted);">Eliminated split category rows (e.g., prevented "Clothing" vs "clothing " splits).</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent-cyan);">Removed Duplicates</td>
+                <td style="padding: 1rem; color: var(--text-secondary);">Audited order and transaction IDs to eliminate duplicate row logging.</td>
+                <td style="padding: 1rem; color: var(--text-muted);">Guaranteed zero double-counting across the 45.35M EGP revenue total.</td>
+              </tr>
+              <tr>
+                <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent-cyan);">Filtered Rows</td>
+                <td style="padding: 1rem; color: var(--text-secondary);">Removed internal test orders, missing customer records, and blank entries.</td>
+                <td style="padding: 1rem; color: var(--text-muted);">Preserved data integrity so executives base decisions solely on genuine sales.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 06. EXPLORATORY DATA ANALYSIS (EDA) ================= -->
+    <section class="cs-eda section-spacing" id="eda">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">06 / Exploratory Rigor</span>
+          <h2 class="section-heading">Exploratory Data Analysis (EDA) & Hypotheses</h2>
+          <p class="section-sub">Investigating the data to extract commercial patterns before constructing the visual dashboards.</p>
+        </div>
+
+        <div class="grid-3-col">
+          
+          <div class="glass-card feature-card">
+            <div class="card-icon info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <h3 class="card-h">1. Regional Skew Discovery</h3>
+            <p class="card-p">
+              <strong>Question:</strong> How evenly is revenue distributed across Egypt?<br>
+              <strong>Finding:</strong> Greater Cairo generates <strong>16.8M EGP (~37%)</strong> and Alexandria <strong>8.4M EGP</strong>, combining for >55% of revenue. Upper Egypt and Red Sea/Sinai operate with lower volumes, indicating untapped expansion potential.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon warning-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <h3 class="card-h">2. Discount Return Elasticity</h3>
+            <p class="card-p">
+              <strong>Question:</strong> Do heavy promotional discounts cause higher customer returns?<br>
+              <strong>Finding:</strong> Return rates remained virtually static at <strong>~9% across all discount tiers</strong> (High 21%+, Medium 11-20%, Low 1-10%, No Discount). Returns are driven by product fit, not promotional bargain-hunting.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon alert-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <h3 class="card-h">3. Return Root Cause Audit</h3>
+            <p class="card-p">
+              <strong>Question:</strong> Why do customers return merchandise?<br>
+              <strong>Finding:</strong> Sizing Issues accounted for <strong>18.66% (197 returns)</strong>, Defective Products <strong>181 items</strong>, and Quality Issues <strong>16.57% (175 items)</strong>. Over 35% of return costs are operational and fixable via QA and size charts.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3 class="card-h">4. Demographic Purchase Power</h3>
+            <p class="card-p">
+              <strong>Question:</strong> Which age brackets drive high transaction volume?<br>
+              <strong>Finding:</strong> The <strong>45–54 age bracket (900+ buyers)</strong> and <strong>25–34 bracket (870+ buyers)</strong> form the core purchasing engine. Combined with a 92% repeat purchase rate, customer lifetime value (LTV) is exceptionally strong.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon warning-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+            </div>
+            <h3 class="card-h">5. Omnichannel Payment Adoption</h3>
+            <p class="card-p">
+              <strong>Question:</strong> How are Egyptian retail consumers settling orders?<br>
+              <strong>Finding:</strong> Payment volume is balanced almost evenly across <strong>Cash (17.25%), InstaPay, Vodafone Cash, Credit Card (16.58%), Debit Card (16.55%), and Fawry (16.5%)</strong>, confirming mainstream digital wallet maturity.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon alert-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <h3 class="card-h">6. Category Balance</h3>
+            <p class="card-p">
+              <strong>Question:</strong> Does Clothing or Electronics dominate overall sales?<br>
+              <strong>Finding:</strong> Both major categories contribute nearly identical revenue shares (~22.6M EGP each), showing that Lotus has achieved balanced product diversification rather than relying on a single vertical.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 07. DATA MODEL ARCHITECTURE ================= -->
+    <section class="cs-model section-spacing" id="model">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">07 / Data Architecture</span>
+          <h2 class="section-heading">Star Schema Data Model Architecture</h2>
+          <p class="section-sub">Structuring high-performance relational links between transactional facts and descriptive dimensions.</p>
+        </div>
+
+        <div class="architecture-diagram" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 2.5rem; margin-bottom: 2rem;">
+          
+          <div style="text-align: center; margin-bottom: 2rem;">
+            <span class="badge badge-primary" style="font-size: 0.9rem; padding: 0.4rem 1rem;">Dimensional Star Schema</span>
+            <p style="color: var(--text-secondary); margin-top: 0.5rem; max-width: 650px; margin-left: auto; margin-right: auto;">
+              Connecting central transactional facts to surrounding contextual dimensions with 1-to-Many relationships for instant dynamic cross-filtering.
+            </p>
+          </div>
+
+          <div class="model-entities-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
+            
+            <!-- Dimension 1 -->
+            <div class="dim-card" style="background: rgba(14, 165, 233, 0.05); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: var(--radius-md); padding: 1.25rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <span style="font-family: var(--font-mono); font-weight: 700; color: var(--accent-cyan-light);">dim_customers</span>
+                <span class="badge" style="background: rgba(14, 165, 233, 0.2); color: var(--accent-cyan-light); font-size: 0.75rem;">Dimension</span>
+              </div>
+              <ul style="list-style: none; padding: 0; margin: 0; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+                <li>• customer_id (PK)</li>
+                <li>• full_name</li>
+                <li>• age & age_group</li>
+                <li>• loyalty_tier (Bronze-Plat)</li>
+              </ul>
+            </div>
+
+            <!-- Fact 1 -->
+            <div class="fact-card" style="background: rgba(16, 185, 129, 0.08); border: 2px solid rgba(16, 185, 129, 0.4); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: 0 0 15px rgba(16, 185, 129, 0.1);">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <span style="font-family: var(--font-mono); font-weight: 700; color: var(--accent-emerald);">fact_sales</span>
+                <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); font-size: 0.75rem;">Central Fact</span>
+              </div>
+              <ul style="list-style: none; padding: 0; margin: 0; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+                <li>• sale_id (PK)</li>
+                <li>• order_id & date (FK)</li>
+                <li>• product_id & store_id (FK)</li>
+                <li>• revenue, cost, profit, margin</li>
+              </ul>
+            </div>
+
+            <!-- Dimension 2 -->
+            <div class="dim-card" style="background: rgba(14, 165, 233, 0.05); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: var(--radius-md); padding: 1.25rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <span style="font-family: var(--font-mono); font-weight: 700; color: var(--accent-cyan-light);">dim_products</span>
+                <span class="badge" style="background: rgba(14, 165, 233, 0.2); color: var(--accent-cyan-light); font-size: 0.75rem;">Dimension</span>
+              </div>
+              <ul style="list-style: none; padding: 0; margin: 0; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+                <li>• product_id (PK)</li>
+                <li>• product_type & name</li>
+                <li>• category (Clothing/Electronics)</li>
+                <li>• cost_price & retail_price</li>
+              </ul>
+            </div>
+
+            <!-- Dimension 3 -->
+            <div class="dim-card" style="background: rgba(14, 165, 233, 0.05); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: var(--radius-md); padding: 1.25rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <span style="font-family: var(--font-mono); font-weight: 700; color: var(--accent-cyan-light);">dim_stores</span>
+                <span class="badge" style="background: rgba(14, 165, 233, 0.2); color: var(--accent-cyan-light); font-size: 0.75rem;">Dimension</span>
+              </div>
+              <ul style="list-style: none; padding: 0; margin: 0; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+                <li>• store_id (PK)</li>
+                <li>• store_name (15 Stores)</li>
+                <li>• region (7 Regions)</li>
+                <li>• store_manager</li>
+              </ul>
+            </div>
+
+            <!-- Dimension 4 -->
+            <div class="dim-card" style="background: rgba(14, 165, 233, 0.05); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: var(--radius-md); padding: 1.25rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <span style="font-family: var(--font-mono); font-weight: 700; color: var(--accent-cyan-light);">dim_employees</span>
+                <span class="badge" style="background: rgba(14, 165, 233, 0.2); color: var(--accent-cyan-light); font-size: 0.75rem;">Dimension</span>
+              </div>
+              <ul style="list-style: none; padding: 0; margin: 0; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+                <li>• employee_id (PK)</li>
+                <li>• staff_name & role</li>
+                <li>• assigned_store_id (FK)</li>
+                <li>• department</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: var(--radius-md); color: var(--text-muted); font-size: 0.85rem; text-align: center;">
+            <strong style="color: var(--text-secondary);">Why Star Schema?</strong> Separating transactional metrics from entity attributes eliminates query latency, guarantees referential integrity, and allows business stakeholders to filter by year, region, category, or store without data duplication.
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 08. KEY INSIGHTS & FINDINGS ================= -->
+    <section class="cs-insights section-spacing" id="insights">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">08 / Strategic Findings</span>
+          <h2 class="section-heading">Key Analytical Insights & Discoveries</h2>
+          <p class="section-sub">Translating quantitative dashboard patterns into actionable commercial intelligence.</p>
+        </div>
+
+        <div class="insights-grid">
+          
+          <div class="insight-card">
+            <div class="insight-pill">Finding 01</div>
+            <h3 class="insight-title">Cairo & Alexandria Dominate Revenue Generation</h3>
+            <p class="insight-body">
+              Greater Cairo (16.8M EGP) and Alexandria (8.4M EGP) account for over 55% of all national sales. However, secondary urban hubs in the Nile Delta (7.5M EGP) and Canal Zone (6.5M EGP) demonstrate steady, profitable sales density with lower operational overhead.
+            </p>
+          </div>
+
+          <div class="insight-card">
+            <div class="insight-pill">Finding 02</div>
+            <h3 class="insight-title">92% Repeat Customer Base Anchors Business Stability</h3>
+            <p class="insight-body">
+              The retail operation exhibits an exceptional 92% repeat purchase rate. However, over 50% of these returning shoppers remain in the entry-level Bronze loyalty tier, representing an immediate upside opportunity for loyalty gamification and VIP upsells.
+            </p>
+          </div>
+
+          <div class="insight-card">
+            <div class="insight-pill">Finding 03</div>
+            <h3 class="insight-title">Return Rates Are Operational, Not Discount-Driven</h3>
+            <p class="insight-body">
+              Discount tier elasticity analysis proved that promotional discounting does not cause buyers to return items more frequently (~9% flat return rate). Instead, returns are driven by preventable sizing issues (18.66%) and item defects (16.57%).
+            </p>
+          </div>
+
+          <div class="insight-card">
+            <div class="insight-pill">Finding 04</div>
+            <h3 class="insight-title">Tourist Branch Return Anomalies</h3>
+            <p class="insight-body">
+              Stores located in major tourism centers (Aswan, Sharm El Sheikh, Luxor) exhibit return rates close to 10%—nearly double that of inland retail branches like Tanta (5.9%), suggesting sizing discrepancies during travel purchases and logistics friction.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 09. RECOMMENDATIONS & BUSINESS VALUE ================= -->
+    <section class="cs-recommendations section-spacing" id="recommendations">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">09 / Actionable Roadmap</span>
+          <h2 class="section-heading">Evidence-Based Business Recommendations</h2>
+          <p class="section-sub">Four concrete operational strategies to protect margins and accelerate commercial growth.</p>
+        </div>
+
+        <div class="recs-grid">
+          
+          <div class="rec-card">
+            <div class="rec-num">01</div>
+            <h3 class="rec-title">Standardize Size Guides & Pre-Dispatch Fit Checks</h3>
+            <div class="rec-meta">
+              <strong>Target Metric:</strong> Reduce Return Rate from 9.0% to < 6.5%
+            </div>
+            <p class="rec-desc">
+              Since 18.66% of all returns stem from sizing mismatch, introduce interactive sizing recommendation widgets on digital channels and standardize garment dimensions across suppliers to directly preserve profit margins.
+            </p>
+          </div>
+
+          <div class="rec-card">
+            <div class="rec-num">02</div>
+            <h3 class="rec-title">Tiered Loyalty Gamification for Bronze Upgrades</h3>
+            <div class="rec-meta">
+              <strong>Target Metric:</strong> Increase Average Order Value by 12%
+            </div>
+            <p class="rec-desc">
+              Capitalize on the 92% repeat customer rate by creating targeted milestone incentives (e.g., free expedited shipping or exclusive early product drops) to transition Bronze customers into Silver and Gold tiers.
+            </p>
+          </div>
+
+          <div class="rec-card">
+            <div class="rec-num">03</div>
+            <h3 class="rec-title">Dynamic Inventory Allocation by Regional Velocity</h3>
+            <div class="rec-meta">
+              <strong>Target Metric:</strong> Eliminate Stockouts in Cairo & Delta Hubs
+            </div>
+            <p class="rec-desc">
+              Reallocate safety stock from lower-velocity tourism branches toward high-velocity Greater Cairo and Nile Delta fulfillment hubs to ensure top-selling electronics and clothing SKUs never face out-of-stock lost revenue.
+            </p>
+          </div>
+
+          <div class="rec-card">
+            <div class="rec-num">04</div>
+            <h3 class="rec-title">Regional Store Cost & Quality Assurance Audits</h3>
+            <div class="rec-meta">
+              <strong>Target Metric:</strong> Elevate Store Profit Margins to 24%+
+            </div>
+            <p class="rec-desc">
+              Conduct targeted operational QA audits in high-return branches (Aswan and Sharm El Sheikh) and implement strict pre-sale item inspection protocols to eliminate the 181 defective product returns logged across stores.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 10. PROJECT SUMMARY & NEXT STEPS ================= -->
+    <section class="cs-summary section-spacing">
+      <div class="container">
+        
+        <div class="summary-box" style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: var(--radius-xl); padding: 3rem; text-align: center;">
+          <span class="badge badge-primary" style="margin-bottom: 1rem;">Project Completion Summary</span>
+          <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--text-primary);">A Complete Commercial Intelligence Transformation</h2>
+          <p style="color: var(--text-secondary); max-width: 760px; margin: 0 auto 2rem auto; font-size: 1.05rem; line-height: 1.7;">
+            This project successfully transformed 12,000 raw transactional records into an intuitive, high-performance Power BI business intelligence suite. By combining rigorous Power Query data cleaning, star-schema dimensional modeling, and actionable visual storytelling, Lotus Retail leadership now possesses the clarity needed to optimize store margins, resolve return bottlenecks, and drive sustainable retail growth.
+          </p>
+          
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="../assets/Lotus_Retail_Analytics_Dashboard.pbix" download class="btn btn-primary btn-lg">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Download Power BI (.pbix)</span>
+            </a>
+            <a href="../projects.html" class="btn btn-outline-editorial btn-lg">
+              <span>View Other Projects</span>
+            </a>
+            <a href="../index.html#contact" class="btn btn-pill-primary btn-lg">
+              <span>Discuss a BI Project</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= SITE FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <div class="footer-brand">Atef Asklany</div>
+        <p class="footer-sub">Data Analyst & Business Systems Developer • BIS Graduate</p>
+      </div>
+      <div class="footer-links">
+        <a href="../index.html" class="footer-link">Home</a>
+        <a href="../projects.html" class="footer-link">Selected Work</a>
+        <a href="../index.html#what-i-do" class="footer-link">What I Do</a>
+        <a href="../index.html#skills" class="footer-link">Skills</a>
+        <a href="../index.html#journey" class="footer-link">My Journey</a>
+        <a href="../index.html#contact" class="footer-link">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

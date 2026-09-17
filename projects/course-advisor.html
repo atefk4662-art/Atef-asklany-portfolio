@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>University Course Advisor — Expert System | Atef Asklany</title>
+  <meta name="description" content="University Course Advisor Expert System Case Study by Atef Asklany. A rule-based decision support system evaluating eligibility, calculating 100-point weighted matches, and providing explainable academic recommendations with real-time USD/EGP currency conversion." />
+  
+  <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="dark-theme">
+
+  <!-- ================= TOP NAVIGATION BAR ================= -->
+  <header class="site-header" id="header">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-logo">
+        <span class="logo-name">Atef Asklany</span>
+        <span class="status-indicator">
+          <span class="status-dot"></span> Available for Projects
+        </span>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../projects.html" style="color: var(--accent-cyan-light);">Selected Work</a>
+        <a href="#concept">Concept & Architecture</a>
+        <a href="#interface">System Interface</a>
+        <a href="#engine">Inference Engine</a>
+        <a href="#currency">Live Currency API</a>
+        <a href="#explanation">Explanation Logic</a>
+        <a href="#scoring">Scoring Model</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="../index.html#contact" class="btn btn-sm btn-primary">Let's Talk</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="case-study-container">
+
+    <!-- ================= 01. CASE STUDY HERO ================= -->
+    <section class="cs-hero section-spacing" id="overview">
+      <div class="container">
+        
+        <!-- Breadcrumb & Badge -->
+        <div class="hero-top-meta">
+          <a href="../projects.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Projects
+          </a>
+          <span class="badge badge-primary">Expert Systems • Academic Intelligence • Decision Support</span>
+        </div>
+
+        <!-- Title & Subtitle -->
+        <h1 class="cs-title">University Course Advisor — Rule-Based Expert System</h1>
+        <p class="cs-subtitle">An intelligent academic decision support system that evaluates student eligibility, calculates 100-point weighted multi-factor matches, generates explainable recommendations, and integrates live USD/EGP currency conversion.</p>
+
+        <!-- Executive Summary Bento Box -->
+        <div class="hero-summary-grid">
+          
+          <div class="summary-card main-summary">
+            <div class="summary-label">Executive Summary</div>
+            <p class="summary-text">
+              University students frequently struggle to select optimal elective courses aligned with their career ambitions, current GPA, and existing skillset. I engineered a <strong>Rule-Based University Course Advisor Expert System</strong> built on a classical 4-tier knowledge architecture (<strong>Knowledge Base → Inference Engine → Explanation Engine → UI Application</strong>). The system systematically filters 23 accredited courses across 6 academic disciplines, executes strict prerequisite/GPA eligibility rules, calculates a <strong>100-point multi-attribute weighted match score</strong>, and delivers transparent, personalized justifications explaining exactly <em>why</em> a course was recommended. Additionally, it integrates a <strong>Live Exchange Rate API</strong> to convert course costs from USD to Egyptian Pounds (EGP) in real time.
+            </p>
+          </div>
+
+          <div class="summary-card meta-sidebar">
+            <div class="meta-row">
+              <span class="meta-label">Domain</span>
+              <span class="meta-val">Academic Technology & AI Systems</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Role</span>
+              <span class="meta-val">Expert System Architect & Frontend Dev</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Stack</span>
+              <span class="meta-val">JavaScript (ES6+) • Rule Engine • REST API</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Core Engine</span>
+              <span class="meta-val highlight-kpi">23 Courses • 100-Pt Scoring • Live EGP API</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Hero Primary Visual Showcase -->
+        <div class="hero-visual-frame" style="background: #0B101A; border: 1px solid var(--border-medium); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-glow);">
+          <div class="window-header">
+            <div class="window-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="window-title">Expert System Analysis Output — Explainable Recommendation & Live Currency API</div>
+            <div class="window-tag">Live System Output</div>
+          </div>
+          <div class="dashboard-render" style="padding: 0; background: #070B12; display: flex; justify-content: center; align-items: center;">
+            <img src="../assets/course_advisor_result.png" alt="University Course Advisor Expert System Results" style="width: 100%; height: auto; display: block; object-fit: contain;" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 02. SYSTEM ARCHITECTURE & CONCEPT ================= -->
+    <section class="cs-challenge section-spacing" id="concept">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">01 / Architectural Foundation</span>
+          <h2 class="section-heading">Classical Expert System Architecture</h2>
+          <p class="section-sub">A deterministic, transparent decision-making pipeline designed for academic advising.</p>
+        </div>
+
+        <div class="grid-4-col" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
+          
+          <div class="glass-card feature-card">
+            <div class="card-icon info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            </div>
+            <h3 class="card-h">1. Knowledge Base</h3>
+            <p class="card-p">
+              Encapsulates domain facts and rules: 23 catalog courses, 5 career paths, 5 learning goals, prerequisite chains, minimum GPA constraints, and categorized skill ontologies.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon warning-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </div>
+            <h3 class="card-h">2. Inference Engine</h3>
+            <p class="card-p">
+              Executes two-stage reasoning: filters out ineligible courses based on standing and GPA, then applies multi-criteria mathematical scoring (100 pts) across eligible options.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon alert-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </div>
+            <h3 class="card-h">3. Explanation Engine</h3>
+            <p class="card-p">
+              Converts numeric inference scores into human-readable justifications. Explains exact career alignment, academic fit, skill synergy, and actionable unlocks for locked courses.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </div>
+            <h3 class="card-h">4. Live Currency API</h3>
+            <p class="card-p">
+              Fetches live USD/EGP exchange rates asynchronously to dynamically compute local course enrollment tuition alongside standard international pricing.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 03. INTERACTIVE 4-STEP WIZARD SHOWCASE ================= -->
+    <section class="cs-ecosystem section-spacing" id="interface">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">02 / Interface & User Flow</span>
+          <h2 class="section-heading">4-Step Student Profiling & Decision Journey</h2>
+          <p class="section-sub">Explore the complete user journey from profile input to the transparent Expert System evaluation.</p>
+        </div>
+
+        <!-- Dashboard View Switcher Tabs -->
+        <div class="ecosystem-tabs">
+          <button class="tab-btn active" data-tab="step-1">
+            <span class="tab-index">01</span>
+            <span class="tab-text">Academic Info</span>
+          </button>
+          <button class="tab-btn" data-tab="step-2">
+            <span class="tab-index">02</span>
+            <span class="tab-text">Career Goal</span>
+          </button>
+          <button class="tab-btn" data-tab="step-3">
+            <span class="tab-index">03</span>
+            <span class="tab-text">Skills & Interests</span>
+          </button>
+          <button class="tab-btn" data-tab="step-4">
+            <span class="tab-index">04</span>
+            <span class="tab-text">Learning Goal</span>
+          </button>
+          <button class="tab-btn" data-tab="step-result">
+            <span class="tab-index">05</span>
+            <span class="tab-text">Expert Result & API</span>
+          </button>
+        </div>
+
+        <!-- Step 1: Academic Info -->
+        <div class="tab-panel active" id="step-1">
+          <div class="eco-card-grid">
+            <div class="eco-screen-wrap">
+              <div class="mockup-header">
+                <span>Step 1: Academic Standing & Cumulative GPA</span>
+                <span class="status-pill">Profile Stage</span>
+              </div>
+              <div class="mockup-content" style="padding: 0; background: #070B12;">
+                <img src="../assets/course_advisor_step1.png" alt="Course Advisor Step 1 - Academic Info" style="width: 100%; height: auto; display: block; object-fit: contain;" />
+              </div>
+            </div>
+            <div class="eco-info-wrap">
+              <h3 class="eco-title">Academic Standing & Currency Status</h3>
+              <p class="eco-desc">
+                Captures the student's foundation: Academic Year (Level 1 to Level 4) and Cumulative GPA (0.00 – 4.00), while establishing the real-time currency conversion handshake.
+              </p>
+              <div class="eco-feature-list">
+                <div class="eco-item">
+                  <strong>Academic Level Validation:</strong> Categorizes undergraduate progression (First Year to Senior) to establish course eligibility bounds.
+                </div>
+                <div class="eco-item">
+                  <strong>GPA Baseline Enforcement:</strong> Validates minimum GPA prerequisites required for advanced and specialized elective courses.
+                </div>
+                <div class="eco-item">
+                  <strong>Real-Time API Indicator:</strong> Live header badge confirms active currency gateway status (e.g., Live 1 USD = 52 EGP).
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Career Goal -->
+        <div class="tab-panel" id="step-2">
+          <div class="eco-card-grid">
+            <div class="eco-screen-wrap">
+              <div class="mockup-header">
+                <span>Step 2: Target Career Pathway Selection</span>
+                <span class="status-pill">Career Alignment</span>
+              </div>
+              <div class="mockup-content" style="padding: 0; background: #070B12;">
+                <img src="../assets/course_advisor_step2.png" alt="Course Advisor Step 2 - Career Goal" style="width: 100%; height: auto; display: block; object-fit: contain;" />
+              </div>
+            </div>
+            <div class="eco-info-wrap">
+              <h3 class="eco-title">Career Pathway Intent Mapping</h3>
+              <p class="eco-desc">
+                Allows students to select their primary professional aspiration, which carries the highest single weighting (25 points) in the Expert System evaluation.
+              </p>
+              <div class="eco-feature-list">
+                <div class="eco-item">
+                  <strong>Supported Tracks:</strong> Data Analyst, Business Analyst, Software Developer, Project Manager, and Cybersecurity Specialist.
+                </div>
+                <div class="eco-item">
+                  <strong>Interactive Selection Cards:</strong> Clean visual chips with clear icon cues and highlighted selection states.
+                </div>
+                <div class="eco-item">
+                  <strong>Direct Knowledge Base Mapping:</strong> Connects directly to career competency ontologies defined in the system.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Skills & Interests -->
+        <div class="tab-panel" id="step-3">
+          <div class="eco-card-grid">
+            <div class="eco-screen-wrap">
+              <div class="mockup-header">
+                <span>Step 3: Categorized Skills & Subject Interests</span>
+                <span class="status-pill">Skill Ontology</span>
+              </div>
+              <div class="mockup-content" style="padding: 0; background: #070B12;">
+                <img src="../assets/course_advisor_step3.png" alt="Course Advisor Step 3 - Skills and Interests" style="width: 100%; height: auto; display: block; object-fit: contain;" />
+              </div>
+            </div>
+            <div class="eco-info-wrap">
+              <h3 class="eco-title">Categorized Skill & Subject Matrix</h3>
+              <p class="eco-desc">
+                Presents skills and subject interests grouped into logical academic domains rather than an unorganized generic list, capturing prior knowledge and genuine academic passion.
+              </p>
+              <div class="eco-feature-list">
+                <div class="eco-item">
+                  <strong>Categorized Domains:</strong> Data & Analytics (8 skills), Programming & Development (6 skills), Database (4 skills), Business & Analysis (5 skills), and Management (6 skills).
+                </div>
+                <div class="eco-item">
+                  <strong>Prerequisite Fulfillment:</strong> Evaluates whether student skills meet strict prerequisite rules for advanced technical courses.
+                </div>
+                <div class="eco-item">
+                  <strong>Synergy Scoring:</strong> Computes skill overlap (20 pts) and subject interest resonance (10 pts).
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Learning Goal & Study Time -->
+        <div class="tab-panel" id="step-4">
+          <div class="eco-card-grid">
+            <div class="eco-screen-wrap">
+              <div class="mockup-header">
+                <span>Step 4: Learning Goal & Weekly Study Commitment</span>
+                <span class="status-pill">Preferences</span>
+              </div>
+              <div class="mockup-content" style="padding: 0; background: #070B12;">
+                <img src="../assets/course_advisor_step4.png" alt="Course Advisor Step 4 - Learning Goal" style="width: 100%; height: auto; display: block; object-fit: contain;" />
+              </div>
+            </div>
+            <div class="eco-info-wrap">
+              <h3 class="eco-title">Learning Preferences & Workload Fit</h3>
+              <p class="eco-desc">
+                Aligns course pedagogical difficulty with the student's available study time and primary learning intent to prevent academic overload.
+              </p>
+              <div class="eco-feature-list">
+                <div class="eco-item">
+                  <strong>Learning Goals:</strong> Career Preparation, Practical Skills, Academic Development, Advanced Learning, and Exploring a New Field.
+                </div>
+                <div class="eco-item">
+                  <strong>Workload Feasibility:</strong> Matches low (1–3 hrs/wk), medium (4–7 hrs/wk), or high (8+ hrs/wk) commitment with course expected workload.
+                </div>
+                <div class="eco-item">
+                  <strong>Overload Prevention:</strong> Penalizes high-workload courses if the student only has 1–3 hours available weekly.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5: Result & Explanation -->
+        <div class="tab-panel" id="step-result">
+          <div class="eco-card-grid">
+            <div class="eco-screen-wrap">
+              <div class="mockup-header">
+                <span>Step 5: Explainable Recommendation & Live Currency Conversion</span>
+                <span class="status-pill">Expert Output</span>
+              </div>
+              <div class="mockup-content" style="padding: 0; background: #070B12;">
+                <img src="../assets/course_advisor_result.png" alt="Course Advisor Step 5 - Expert Recommendation" style="width: 100%; height: auto; display: block; object-fit: contain;" />
+              </div>
+            </div>
+            <div class="eco-info-wrap">
+              <h3 class="eco-title">Transparent Recommendation & Currency API</h3>
+              <p class="eco-desc">
+                The final output demonstrates explainable academic advising: showing the exact 73% match score, personalized reasoning, Advisor Insight, course prerequisites, and live USD to EGP pricing.
+              </p>
+              <div class="eco-feature-list">
+                <div class="eco-item">
+                  <strong>73% Match Score (Introduction to Data Analytics):</strong> Computed dynamically from the 100-point weighted scoring model.
+                </div>
+                <div class="eco-item">
+                  <strong>4 Multi-Factor Justifications:</strong> Explicitly breaks down Career Goal fit, Skill background, Academic eligibility, and Learning Goal alignment.
+                </div>
+                <div class="eco-item">
+                  <strong>Live Currency Conversion:</strong> Converts $120 USD into 6,263 EGP at the live rate of 1 USD = 52 EGP.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 04. HOW RESULTS ARE COMPUTED (SCORING MODEL) ================= -->
+    <section class="cs-approach section-spacing" id="scoring">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">03 / The Evaluation Engine</span>
+          <h2 class="section-heading">How the Expert System Computes Results</h2>
+          <p class="section-sub">A transparent, deterministic 100-point mathematical scoring model with zero black-box hallucination.</p>
+        </div>
+
+        <div class="scoring-breakdown-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+          
+          <div class="glass-card">
+            <h3 class="card-h" style="color: var(--accent-cyan-light); margin-bottom: 1.25rem;">Stage 1: Strict Eligibility Filtering</h3>
+            <p class="card-p" style="margin-bottom: 1rem;">
+              Before any course receives a numerical score, the Inference Engine evaluates whether the student meets hard academic constraints:
+            </p>
+            <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.2rem;">
+              <li><strong>Prerequisite Chains:</strong> Have required foundational courses been completed?</li>
+              <li><strong>Academic Level:</strong> Is the student in the required university year (Level 1–4)?</li>
+              <li><strong>Minimum GPA:</strong> Does the cumulative GPA satisfy the course threshold (e.g., 2.00, 2.50, 3.00)?</li>
+              <li><strong>Mandatory Skills:</strong> Does the student possess prerequisite technical skills?</li>
+            </ul>
+            <p class="card-p" style="margin-top: 1rem; color: var(--text-muted); font-size: 0.85rem;">
+              <em>Note: Courses failing eligibility are routed to "Courses to Unlock Later" with explicit guidance on what requirements the student needs to fulfill.</em>
+            </p>
+          </div>
+
+          <div class="glass-card">
+            <h3 class="card-h" style="color: var(--accent-emerald); margin-bottom: 1.25rem;">Stage 2: 100-Point Weighted Evaluation</h3>
+            <p class="card-p" style="margin-bottom: 1rem;">
+              Eligible courses are scored across 6 weighted dimensions reflecting holistic academic advising:
+            </p>
+            
+            <div class="weight-bars-wrap" style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+                  <span>Career Goal Alignment</span>
+                  <strong>25 Points</strong>
+                </div>
+                <div style="height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
+                  <div style="width: 100%; height: 100%; background: var(--accent-cyan);"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+                  <span>Skill Match & Synergy</span>
+                  <strong>20 Points</strong>
+                </div>
+                <div style="height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
+                  <div style="width: 80%; height: 100%; background: var(--accent-emerald);"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+                  <span>Academic Level Fit</span>
+                  <strong>15 Points</strong>
+                </div>
+                <div style="height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
+                  <div style="width: 60%; height: 100%; background: var(--accent-purple);"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+                  <span>Learning Goal Alignment</span>
+                  <strong>15 Points</strong>
+                </div>
+                <div style="height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
+                  <div style="width: 60%; height: 100%; background: var(--accent-purple);"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+                  <span>Study Time Commitment Fit</span>
+                  <strong>15 Points</strong>
+                </div>
+                <div style="height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
+                  <div style="width: 60%; height: 100%; background: var(--accent-cyan-light);"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+                  <span>Subject Interest Resonance</span>
+                  <strong>10 Points</strong>
+                </div>
+                <div style="height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
+                  <div style="width: 40%; height: 100%; background: var(--accent-amber);"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 05. LIVE CURRENCY EXCHANGE API INTEGRATION ================= -->
+    <section class="cs-cleaning section-spacing" id="currency">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">04 / Financial Integration</span>
+          <h2 class="section-heading">Live Currency Exchange Rate API Integration</h2>
+          <p class="section-sub">Connecting academic course catalogs with real-time financial foreign exchange data.</p>
+        </div>
+
+        <div class="audit-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+          
+          <div class="glass-card">
+            <h3 class="card-h" style="color: var(--accent-cyan-light); margin-bottom: 1rem;">Real-Time Financial Conversion</h3>
+            <p class="card-p">
+              While university course catalogs and international certifications store baseline tuition in <strong>US Dollars (USD)</strong>, Egyptian undergraduate students need immediate clarity on local currency expenditure in <strong>Egyptian Pounds (EGP)</strong>.
+            </p>
+            <p class="card-p" style="margin-top: 1rem;">
+              The system connects to a live Foreign Exchange REST API on application launch, retrieving the current USD/EGP rate (e.g., <strong>1 USD = 52.00 EGP</strong>) and dynamically calculating exact tuition at the moment of recommendation.
+            </p>
+          </div>
+
+          <div class="glass-card">
+            <h3 class="card-h" style="color: var(--accent-emerald); margin-bottom: 1rem;">Graceful Offline Resilience</h3>
+            <p class="card-p">
+              The API client is engineered with defensive failure handling:
+            </p>
+            <ul style="color: var(--text-secondary); line-height: 1.7; padding-left: 1.2rem; margin-top: 0.5rem;">
+              <li><strong>Live Connection:</strong> Displays the green active status dot and converts $120 USD → 6,263 EGP.</li>
+              <li><strong>Network Fallback:</strong> If the currency API is temporarily unreachable or blocked by client firewalls, the system gracefully retains the baseline USD price without breaking the advising engine or throwing runtime exceptions.</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 06. EXPLANATION ENGINE & ADVISOR INSIGHT ================= -->
+    <section class="cs-eda section-spacing" id="explanation">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">05 / Explainable AI</span>
+          <h2 class="section-heading">The Explanation Engine: Transparent Reasoning</h2>
+          <p class="section-sub">Eliminating opaque recommendations through structured, natural-language academic justifications.</p>
+        </div>
+
+        <div class="grid-3-col">
+          
+          <div class="glass-card feature-card">
+            <div class="card-icon info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <h3 class="card-h">Career Alignment Fact</h3>
+            <p class="card-p">
+              <em>"You selected <strong>Business Analyst</strong> as your target career path, and this course provides foundational knowledge directly applicable to that role."</em>
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon warning-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            </div>
+            <h3 class="card-h">Skill Background Synergy</h3>
+            <p class="card-p">
+              <em>"Your selected skills in <strong>Business Analysis and Project Management</strong> demonstrate strong readiness for this academic domain."</em>
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon alert-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            </div>
+            <h3 class="card-h">Academic Eligibility Validation</h3>
+            <p class="card-p">
+              <em>"Your <strong>Level 2</strong> standing and GPA of <strong>3.00</strong> satisfy this course's academic requirements (requires Level 1, min GPA 2.00)."</em>
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 07. PROJECT SUMMARY & NEXT STEPS ================= -->
+    <section class="cs-summary section-spacing">
+      <div class="container">
+        
+        <div class="summary-box" style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: var(--radius-xl); padding: 3rem; text-align: center;">
+          <span class="badge badge-primary" style="margin-bottom: 1rem;">System Engineering Summary</span>
+          <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--text-primary);">Intelligent, Explainable Academic Decision Support</h2>
+          <p style="color: var(--text-secondary); max-width: 760px; margin: 0 auto 2rem auto; font-size: 1.05rem; line-height: 1.7;">
+            The University Course Advisor demonstrates how structured rule-based Expert Systems provide transparent, trustworthy, and deterministic decision support in higher education. By combining strict academic eligibility verification, 100-point multi-attribute scoring, natural language explanation synthesis, and real-time currency API integration, the system serves as a reliable digital academic advisor.
+          </p>
+          
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="../projects.html" class="btn btn-outline-editorial btn-lg">
+              <span>Explore Other Projects</span>
+            </a>
+            <a href="../index.html#contact" class="btn btn-pill-primary btn-lg">
+              <span>Discuss Expert Systems</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= SITE FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <div class="footer-brand">Atef Asklany</div>
+        <p class="footer-sub">Data Analyst & Business Systems Developer • BIS Graduate</p>
+      </div>
+      <div class="footer-links">
+        <a href="../index.html" class="footer-link">Home</a>
+        <a href="../projects.html" class="footer-link">Selected Work</a>
+        <a href="../index.html#what-i-do" class="footer-link">What I Do</a>
+        <a href="../index.html#skills" class="footer-link">Skills</a>
+        <a href="../index.html#journey" class="footer-link">My Journey</a>
+        <a href="../index.html#contact" class="footer-link">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

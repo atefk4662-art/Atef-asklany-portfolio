@@ -42,6 +42,42 @@ const PROJECTS = [
     order: 2
   },
   {
+    id: "lotus-retail",
+    title: "Lotus Retail Analytics & BI Dashboard",
+    category: "data",
+    categoryLabel: "Retail Analytics • Power BI • Star Schema",
+    description: "End-to-end retail business intelligence suite analyzing 45.35M EGP across 12,000 orders and 15 stores. Features a star-schema data model and an interactive 4-view Power BI dashboard tracking regional margins, loyalty tiers, and return root causes.",
+    coverImage: "assets/lotus_retail_cover.png",
+    tools: ["Power BI", "DAX", "Power Query", "Star Schema", "Retail Analytics"],
+    metrics: [
+      { value: "45.35M", label: "Total Revenue" },
+      { value: "92%", label: "Repeat Buyers" },
+      { value: "15 Stores", label: "Multi-Store BI" }
+    ],
+    featured: true,
+    status: "completed",
+    caseStudyUrl: "projects/lotus-retail.html",
+    order: 3
+  },
+  {
+    id: "course-advisor",
+    title: "University Course Advisor — Expert System",
+    category: "systems",
+    categoryLabel: "Expert Systems • Academic Intelligence",
+    description: "A rule-based academic advising Expert System evaluating student eligibility, calculating a 100-point multi-attribute weighted match, generating explainable recommendations, and integrating live USD/EGP currency exchange rates.",
+    coverImage: "assets/course_advisor_cover.png",
+    tools: ["Expert System", "Inference Engine", "Knowledge Base", "REST API", "JavaScript"],
+    metrics: [
+      { value: "23 Courses", label: "Knowledge Base" },
+      { value: "100-Pt", label: "Weighted Model" },
+      { value: "Live EGP", label: "Currency API" }
+    ],
+    featured: true,
+    status: "completed",
+    caseStudyUrl: "projects/course-advisor.html",
+    order: 4
+  },
+  {
     id: "triple-seven",
     title: "Triple Seven PlayStation & Café POS",
     category: "systems",
@@ -57,7 +93,7 @@ const PROJECTS = [
     featured: true,
     status: "completed",
     caseStudyUrl: "projects/triple-seven.html",
-    order: 3
+    order: 5
   },
   {
     id: "foush",
@@ -75,7 +111,7 @@ const PROJECTS = [
     featured: true,
     status: "completed",
     caseStudyUrl: "projects/foush.html",
-    order: 4
+    order: 6
   },
   {
     id: "customer-behavior",
@@ -92,7 +128,7 @@ const PROJECTS = [
     featured: true,
     status: "completed",
     caseStudyUrl: "projects/customer-behavior.html",
-    order: 5
+    order: 7
   }
 ];
 
